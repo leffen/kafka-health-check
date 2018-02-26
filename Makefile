@@ -4,11 +4,6 @@ build:
 install:
 	@go install .
 
-deps:
-	@go get -u -v github.com/kardianos/govendor
-	@govendor sync
-	@cd compatibility; govendor sync
-
 test: build
 	@go fmt . ./check
 	@go vet . ./check
@@ -22,3 +17,6 @@ test-no-race: build
 
 compatibility: build
 	@go run compatibility/test.go -base-dir "./compatibility" -health-check "./kafka-health-check"
+
+run: 
+	go run . check/. -broker-port=9094

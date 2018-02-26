@@ -4,11 +4,12 @@
 package check
 
 import (
+	time "time"
+
 	gomock "github.com/golang/mock/gomock"
 	kafka "github.com/optiopay/kafka"
 	proto "github.com/optiopay/kafka/proto"
 	zk "github.com/samuel/go-zookeeper/zk"
-	time "time"
 )
 
 // Mock of BrokerConnection interface
